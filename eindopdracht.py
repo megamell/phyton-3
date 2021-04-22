@@ -1,91 +1,75 @@
 import os
 os.system("clear")
 
-# de mooie 3.9 code werkte niet goed dus ben ik door gegaan met de oude lelijke code.
 productenlijst = {"appel": 199, "bannaan": 100, "vodka": 6000, "capri-sun": 1000000000, "gefermeteerdehockeyschoen": 100000000000000000000}
 
 
-def productenlist():
+def productenlist(productenlijst):
     for key, value in productenlijst.items():
         print(key, value)
 
 
-def overzicht():
-    productenlist()
+def overzicht(productenlijst):
+    productenlist(productenlijst)
 
 
-def toevoegen():
+def toevoegen(productenlijst):
     product = input("welk product wil je tovoegen: ")
     prijs = input("hoe duur is het product: ")
     productenlijst[product] = int(prijs)
-    productenlist()
+    productenlist(productenlijst)
 
 
-def aanpassen():
-    productenlist()
+def aanpassen(productenlijst):
+    productenlist(productenlijst)
     producta = input("welk product wil je aanpassen: ")
     prijsa = input("Hoe duur word het product: ")
     productenlijst[producta] = prijsa
-    productenlist()
+    productenlist(productenlijst)
 
 
-def verwijderen():
-    productenlist()
+def verwijderen(productenlijst):
+    productenlist(productenlijst)
     productv = input("welk product wil je verwijderen: ")
     del productenlijst[productv]
-    productenlist()
+    productenlist(productenlijst)
 
-def boodschappen():
+def boodschappen(productenlijst):
     prijstot = 0
     jaofne = input("wil je kopen of stoppen ja = kopen nee = stoppen: ")
     jaofnee = jaofne.lower()
     while jaofnee != "nee":
-        jaofne = input("wil je kopen of stoppen ja = kopen nee = stoppen: ")
-        jaofnee = jaofne.lower()
-    #while (jaofnee := keuze()) != "nee":
         if jaofnee == "ja":
-            productenlist()
+            productenlist(productenlijst)
             productb = str(input("welk product wil je kopen: "))
             prijstot += int(productenlijst[productb])
             print(prijstot)
         elif jaofnee == "nee":
-            boodschappenprijs = boodschappen()
             boodschappenprijs = str(boodschappenprijs)
             print("De prijs van uw boodschappen is: €" + boodschappenprijs)
             return prijstot
         else:
             print("Fout, probeer iets anders.")
-
-    boodschappenprijs = boodschappen()
-    boodschappenprijs = str(boodschappenprijs)
-    print("De prijs van uw boodschappen is: €" + boodschappenprijs)
-
-
-#def maak_keuze():
-    input_ = input("wat wil je doen overzicht = overzicht toevoegen = product toevoegen aanpassen = aanpassen verwijderen = verwijderen boodschappen = boodschappen doen stop = stoppen: ")
-    letter = input_.lower()
-    return letter
+        jaofne = input("wil je kopen of stoppen ja = kopen nee = stoppen: ")
+        jaofnee = jaofne.lower()
 
 
 def main():
     input_ = input("wat wil je doen overzicht = overzicht toevoegen = product toevoegen aanpassen = aanpassen verwijderen = verwijderen boodschappen = boodschappen doen stop = stoppen: ")
     letter = input_.lower()
     while letter != "stop":
-        input_ = input("wat wil je doen overzicht = overzicht toevoegen = product toevoegen aanpassen = aanpassen verwijderen = verwijderen boodschappen = boodschappen doen stop = stoppen: ")
-        letter = input_.lower()   
-    #while (letter := maak_keuze()) != "stop":
         if letter == "overzicht":
-            overzicht()
+            overzicht(productenlijst)
         elif letter == "toevoegen":
-            toevoegen()
+            toevoegen(productenlijst)
         elif letter == "aanpassen":
-            aanpassen()
+            aanpassen(productenlijst)
         elif letter == "verwijderen":
-            verwijderen()
+            verwijderen(productenlijst)
         elif letter == "boodschappen":
-            boodschappen()
+            boodschappen(productenlijst)
         else:
             print("Fout, probeer iets anders.")
-        # input_ = input("wat wil je doen o = overzicht t = product toevoegen a = aanpassen v = verwijderen b = boodschappen doen stop = stoppen: ")
-        # letter = input_.lower()
+        input_ = input("wat wil je doen overzicht = overzicht toevoegen = product toevoegen aanpassen = aanpassen verwijderen = verwijderen boodschappen = boodschappen doen stop = stoppen: ")
+        letter = input_.lower()
 main()
