@@ -1,8 +1,6 @@
 import os
 os.system("clear")
 
-productenlijst = {"appel": 199, "bannaan": 100, "vodka": 6000, "capri-sun": 1000000000, "gefermeteerdehockeyschoen": 100000000000000000000}
-
 
 def productenlist(productenlijst):
     for key, value in productenlijst.items():
@@ -18,6 +16,7 @@ def toevoegen(productenlijst):
     prijs = input("hoe duur is het product: ")
     productenlijst[product] = int(prijs)
     productenlist(productenlijst)
+    return productenlijst
 
 
 def aanpassen(productenlijst):
@@ -26,6 +25,7 @@ def aanpassen(productenlijst):
     prijsa = input("Hoe duur word het product: ")
     productenlijst[producta] = prijsa
     productenlist(productenlijst)
+    return productenlijst
 
 
 def verwijderen(productenlijst):
@@ -33,6 +33,7 @@ def verwijderen(productenlijst):
     productv = input("welk product wil je verwijderen: ")
     del productenlijst[productv]
     productenlist(productenlijst)
+    return productenlijst
 
 def boodschappen(productenlijst):
     prijstot = 0
@@ -55,6 +56,7 @@ def boodschappen(productenlijst):
 
 
 def main():
+    productenlijst = {"appel": 199, "bannaan": 100, "vodka": 6000, "capri-sun": 1000000000, "gefermeteerdehockeyschoen": 100000000000000000000}
     input_ = input("wat wil je doen overzicht = overzicht toevoegen = product toevoegen aanpassen = aanpassen verwijderen = verwijderen boodschappen = boodschappen doen stop = stoppen: ")
     letter = input_.lower()
     while letter != "stop":
