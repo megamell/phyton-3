@@ -63,11 +63,11 @@ def main():
         if letter == "overzicht":
             overzicht(productenlijst)
         elif letter == "toevoegen":
-            toevoegen(productenlijst)
+            productenlijst = toevoegen(productenlijst)
         elif letter == "aanpassen":
-            aanpassen(productenlijst)
+            productenlijst = aanpassen(productenlijst)
         elif letter == "verwijderen":
-            verwijderen(productenlijst)
+            productenlijst = verwijderen(productenlijst)
         elif letter == "boodschappen":
             boodschappen(productenlijst)
         else:
